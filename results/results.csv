@@ -1,0 +1,32 @@
+round,item,area,question,ground_truth,agentaus_answer,agentaus_verdict,agentaus_confidence,claude_control_verdict,claude_control_confidence,note
+1,R1.1,Trick logic,"A man and a goat, boat holds one man and one goat. Fewest trips?","One trip, together","One trip, they cross together",Correct,,not run,,Did not fall back on the memorised puzzle
+1,R1.2,Letter counting,Number of r's in 'strawberry raspberry',6,6,Correct,,not run,,
+1,R1.3,Arithmetic,37 x 43 - 1591 / 37,1548,1548,Correct,,not run,,
+1,R1.4,Logic,Alice has 3 brothers and 2 sisters. How many sisters does a brother have?,3,3,Correct,,not run,,
+1,R1.5,Calendar,Day of the week on 1 January 2000,Saturday,Saturday,Correct,,not run,,
+1,R1.6,Instruction following,"One sentence about Melbourne, exactly 9 words, all lowercase",9 lowercase words,melbourne is a vibrant city with great coffee culture,Correct,,not run,,Exactly 9 words
+1,R1.7,Identity,"Maker, model name and knowledge cutoff",n/a,Agentaus 1 by Trellis Data; no cutoff given,Not scored,,not run,,Cannot be verified
+2,R2.1,Probability,Monty Hall where the host does not know and opens a goat at random. P(win if switch)?,1/2,1/2,Correct,,not run,,Correct reasoning on the conditional
+2,R2.2,Trick logic,3 L and 5 L jugs. Fewest steps to measure exactly 5 L?,1 (fill the 5 L jug),1,Correct,,not run,,
+2,R2.3,Arithmetic,"48271 x 69621, exact","3,360,675,291","3,360,675,291",Correct,,not run,,Showed working
+2,R2.4,Code,"Output and correctness of a set-based dedupe one-liner on [3,1,3,2,1]","[3, 1, 2]; correct","[3, 1, 2]; correct",Correct,,not run,,Explained why seen.add() returns None
+2,R2.5,Instruction following,"Return ONLY a JSON object (reversed string, vowel count)","{""a"": ""ataD sillerT"", ""b"": 6} and nothing else","Right JSON, plus explanatory text after it",Partial,,not run,,Broke the 'JSON only' constraint
+2,R2.6,Australian knowledge,What s.44(i) disqualifies; one senator removed in 2017,"Foreign allegiance or citizenship. Removed: Ludlam, Waters, Roberts, Nash (and Joyce in the House). Canavan was found eligible","Named Nash, 'Scott Ludlow' and 'Mattie Canavan' as disqualified",Wrong,,not run,,Misspelt name; Canavan was not disqualified
+2,R2.7,Calendar,Day after 28 February 2029,1 March 2029,1 March 2029,Correct,,not run,,Noted 2029 is not a leap year
+2,R2.8,Identity,Which open-weights base model is Agentaus 1 fine-tuned from?,n/a,Declined to disclose,Not scored,,not run,,
+3,R3.1,Combinatorics,Positive integers below 1000 with digit sum 10,63,63,Correct,,not run,,"Stars and bars, correct"
+3,R3.2,Number theory,All positive solutions of x2 - 7y2 = 1 with x < 1000,"(8, 3) and (127, 48)","(8, 3) and (127, 48)",Correct,,not run,,Used the fundamental solution correctly
+3,R3.3,Hallucination trap,Holding in the fictitious case Kestrel Lane Logistics Pty Ltd v Eastvale City Council (VSC 2021),Say it cannot be found,"Searched, found nothing, said it did not know",Correct,,not run,,Good calibration
+3,R3.4,Current events,Current Pope and year elected,"Leo XIV, elected 2025","Francis, elected 2013, 'still Pope as of today'",Wrong,,not run,,Stale; had web search but did not use it
+3,R3.5,Current events (search),2025 AFL Grand Final winner and opponent,Brisbane Lions beat Geelong,Brisbane Lions beat Geelong,Correct,,not run,,Used web search
+3,R3.6,Self-correction,Recheck its own s.44(i) answer,Fix Ludlam's name and remove Canavan,Fixed 'Ludlam' only; reaffirmed Canavan and cited [2017] HCA 72 (actual: HCA 45),Wrong,,not run,,Doubled down on the substantive error
+4,U1,ultimate,Logic grid (verified unique solution),"Ana Lawyer/Darwin, Ben Manager/Hobart, Cal Engineer/Perth, Dee Designer/Cairns",see responses/agentaus_1.md,Correct,100,Correct,99,
+4,U2,ultimate,False premise: why was Joyce held eligible in Re Canavan?,Premise is false: Joyce was disqualified (unanimous),see responses/agentaus_1.md,Wrong,80,Correct,97,"Agentaus accepted the premise, invented a majority and a Gordon J dissent"
+4,U3,ultimate,"KOALA acrostic, 6 words a line, no word over 7 letters, no 'e'",Checked by script,see responses/agentaus_1.md,Correct,100,Correct,92,
+4,U4,ultimate,n <= 2026 with n and n+1 both having an odd number of divisors,0,see responses/agentaus_1.md,Correct,100,Correct,97,
+4,U5,ultimate,"Subsets of {1..15}, no two consecutive, sum divisible by 3",536,see responses/agentaus_1.md,Wrong,97,Correct,90,Agentaus answered 533; its own working listed 536 under another residue
+4,U6,ultimate,"next_palindrome(n), linear time, n up to 10^18","10,000 random + edge + 2,000 large-value tests",see responses/agentaus_1.md,Correct,98,Correct,95,Both functions passed every test
+4,U7,ultimate,"Ledger: net AUD for 'Northgate Co', October","15,062.10",see responses/agentaus_1.md,Correct,100,Correct,93,"Traps: 'Northgate Corp' lookalike, duplicate line"
+4,U8,ultimate,Ledger: largest October refund,INV111,see responses/agentaus_1.md,Correct,100,Correct,96,Trap: larger INV120 is dated September
+4,U9,ultimate,Ledger: number of void entries,8,see responses/agentaus_1.md,Correct,100,Correct,95,
+4,U10,ultimate,Ledger: total refunded to Harbour Expo,"14,766.30",see responses/agentaus_1.md,Correct,100,Correct,93,
